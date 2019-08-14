@@ -22,7 +22,7 @@ if (!defined('ABSPATH')) exit;
 
 $config = include(__DIR__ . '/config/plugin.php');
 
-define('PROGRESSO_FRMEWORK', $config['version']);
+define('PROGRESSO_FRAMEWORK', $config['version']);
 define('PROGRESSO_FRAMEWORK_PATH', plugin_dir_path(__FILE__));
 
 if ($config['environment'] === 'production') {
