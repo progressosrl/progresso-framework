@@ -26,7 +26,19 @@ define('PROGRESSO_FRMEWORK', $config['version']);
 define('PROGRESSO_FRAMEWORK_PATH', plugin_dir_path(__FILE__));
 
 if ($config['environment'] === 'production') {
-    require_once(__DIR__ . "/build/vendor/scoper-autoload.php");
+    if (file_exists(__DIR__ . "/build/vendor/scoper-autoload.php")) {
+        require_once(__DIR__ . "/build/vendor/scoper-autoload.php");
+    } else {
+        require_once(__DIR__ . "/build/vendor/autoload.php");
+    }
+
+    // load the plugin update checker
+    require __DIR__ . '/libraries/plugin-update-checker/plugin-update-checker.php';
+    $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+        'https://github.com/progressosrl/progresso-framework/',
+        __FILE__,
+        'progresso-framework-update'
+    );
 } else {
     require_once(__DIR__ . "/vendor/autoload.php");
 }
