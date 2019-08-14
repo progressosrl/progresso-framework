@@ -33,7 +33,7 @@ if ($config['environment'] === 'production') {
     }
 
     // load the plugin update checker
-    require __DIR__ . '/libraries/plugin-update-checker/plugin-update-checker.php';
+    require_once(__DIR__ . '/libraries/plugin-update-checker/plugin-update-checker.php');
     $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
         'https://github.com/progressosrl/progresso-framework/',
         __FILE__,
