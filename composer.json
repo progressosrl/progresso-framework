@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Progresso\\Framework\\": ["src/"]
+    }
+  },
+  "require": {
+    "gumlet/php-image-resize": "^1.9",
+    "wruczek/php-file-cache": "^0.0.4",
+    "nokitakaze/randomstring": "^0.2.1"
+  }
+}
