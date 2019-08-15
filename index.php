@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) exit;
 $config = include(__DIR__ . '/config/plugin.php');
 
 define('PROGRESSO_FRAMEWORK', $config['version']);
-define('PROGRESSO_FRAMEWORK_PATH', plugin_dir_path(__FILE__));
+define('PROGRESSO_FRAMEWORK_PATH', __DIR__);
 
 if ($config['environment'] === 'production') {
     if (file_exists(__DIR__ . "/build/vendor/scoper-autoload.php")) {
@@ -33,8 +33,8 @@ if ($config['environment'] === 'production') {
     }
 
     // load the plugin update checker
-    require_once(__DIR__ . '/libraries/plugin-update-checker/plugin-update-checker.php');
-    $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+    require_once(PROGRESSO_FRAMEWORK_PATH . '/libraries/plugin-update-checker/v4p7/plugin-update-checker.php');
+    $myUpdateChecker = Puc_v4p7_Factory::buildUpdateChecker(
         'https://github.com/progressosrl/progresso-framework/',
         __FILE__,
         'progresso-framework-update'
