@@ -9,11 +9,6 @@ module.exports = function(grunt) {
             composer: {
                 src: 'composer.lock',
                 dest: 'build/composer.lock',
-            },
-            cmb2: {
-                expand: true,
-                src: 'vendor/cmb2/**',
-                dest: 'build/',
             }
         },
     });
@@ -21,6 +16,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-exec');
 
-    grunt.registerTask('build', ['exec:scoper', 'copy:cmb2', 'copy:composer', 'exec:composer']);
+    grunt.registerTask('build', ['exec:scoper', 'copy:composer', 'exec:composer']);
 
 };

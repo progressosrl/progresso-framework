@@ -43,4 +43,4 @@ if ($config['environment'] === 'production') {
     require_once(__DIR__ . "/vendor/autoload.php");
 }
 
-// Progresso\Framework\Plugin::instance()->init($config);
+Progresso\Framework\Plugin::init($config);

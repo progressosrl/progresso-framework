@@ -8,7 +8,7 @@ $config = include(__DIR__.'/plugin.php');
 
 return [
     // The prefix configuration. If a non null value will be used, a random prefix will be generated.
-    'prefix' => $config['namespace'] . 'Vendor', //'Progresso\Erudition\Vendor',
+    'prefix' => $config['namespace'] . 'Vendor', //'Progresso\Framework\Vendor',
 
     // By default when running php-scoper add-prefix, it will prefix all relevant code found in the current working
     // directory. You can however define which files should be scoped by defining a collection of Finders in the
@@ -28,6 +28,7 @@ return [
                 'tests',
                 'Tests',
                 'vendor-bin',
+                'examples',
             ])
             ->in('vendor'),
         Finder::create()->append([
@@ -49,9 +50,9 @@ return [
     //
     // For more see: https://github.com/humbug/php-scoper#patchers
     'patchers' => [
-        function (string $filePath, string $prefix, string $contents): string {
+        /* function (string $filePath, string $prefix, string $contents): string {
             return $contents;
-        },
+        }, */
     ],
 
     // PHP-Scoper's goal is to make sure that all code for a project lies in a distinct PHP namespace. However, you

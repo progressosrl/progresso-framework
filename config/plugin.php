@@ -3,7 +3,7 @@
 return [
 
     'namespace' => 'Progresso\Framework\\',
-    'environment' => 'development',
+    'environment' => 'production',
     'version' => '1.0.0',
 
 ];
