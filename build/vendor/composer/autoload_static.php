@@ -4,53 +4,41 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd1576e2d746f525d5b038e446d38ddde
+class ComposerStaticInit85c2fd0910614a27f9b5695b6306653f
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
-            'Progresso\\Framework\\Vendor\\Wruczek\\PhpFileCache\\' => 48,
-            'Progresso\\Framework\\Vendor\\NokitaKaze\\RandomString\\' => 51,
-            'Progresso\\Framework\\Vendor\\Gumlet\\' => 34,
-            'Progresso\\Framework\\' => 20,
+            'Progresso\\Gumlet\\' => 17,
+            'Progresso\\' => 10,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Progresso\\Framework\\Vendor\\Wruczek\\PhpFileCache\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/wruczek/php-file-cache/src',
-        ),
-        'Progresso\\Framework\\Vendor\\NokitaKaze\\RandomString\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/nokitakaze/randomstring/src',
-        ),
-        'Progresso\\Framework\\Vendor\\Gumlet\\' => 
+        'Progresso\\Gumlet\\' => 
         array (
             0 => __DIR__ . '/..' . '/gumlet/php-image-resize/lib',
         ),
-        'Progresso\\Framework\\' => 
+        'Progresso\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
     public static $classMap = array (
-        'Progresso\\Framework\\FrontendRouter' => __DIR__ . '/../..' . '/src/FrontendRouter.php',
-        'Progresso\\Framework\\Plugin' => __DIR__ . '/../..' . '/src/Plugin.php',
-        'Progresso\\Framework\\Routing\\Router' => __DIR__ . '/../..' . '/src/Routing/Router.php',
-        'Progresso\\Framework\\Vendor\\Gumlet\\ImageResize' => __DIR__ . '/..' . '/gumlet/php-image-resize/lib/ImageResize.php',
-        'Progresso\\Framework\\Vendor\\Gumlet\\ImageResizeException' => __DIR__ . '/..' . '/gumlet/php-image-resize/lib/ImageResizeException.php',
-        'Progresso\\Framework\\Vendor\\NokitaKaze\\RandomString\\RandomString' => __DIR__ . '/..' . '/nokitakaze/randomstring/src/RandomString.php',
-        'Progresso\\Framework\\Vendor\\Wruczek\\PhpFileCache\\PhpFileCache' => __DIR__ . '/..' . '/wruczek/php-file-cache/src/PhpFileCache.php',
+        'Progresso\\CustomRoute' => __DIR__ . '/../..' . '/src/CustomRoute.php',
+        'Progresso\\Gumlet\\ImageResize' => __DIR__ . '/..' . '/gumlet/php-image-resize/lib/ImageResize.php',
+        'Progresso\\Gumlet\\ImageResizeException' => __DIR__ . '/..' . '/gumlet/php-image-resize/lib/ImageResizeException.php',
+        'Progresso\\Routing\\PostRouter' => __DIR__ . '/../..' . '/src/Routing/PostRouter.php',
+        'Progresso\\Routing\\Router' => __DIR__ . '/../..' . '/src/Routing/Router.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd1576e2d746f525d5b038e446d38ddde::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd1576e2d746f525d5b038e446d38ddde::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitd1576e2d746f525d5b038e446d38ddde::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit85c2fd0910614a27f9b5695b6306653f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit85c2fd0910614a27f9b5695b6306653f::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit85c2fd0910614a27f9b5695b6306653f::$classMap;
 
         }, null, ClassLoader::class);
     }

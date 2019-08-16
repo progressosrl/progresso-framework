@@ -6,11 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Progresso\\Framework\\FrontendRouter' => $baseDir . '/src/FrontendRouter.php',
-    'Progresso\\Framework\\Plugin' => $baseDir . '/src/Plugin.php',
-    'Progresso\\Framework\\Routing\\Router' => $baseDir . '/src/Routing/Router.php',
-    'Progresso\\Framework\\Vendor\\Gumlet\\ImageResize' => $vendorDir . '/gumlet/php-image-resize/lib/ImageResize.php',
-    'Progresso\\Framework\\Vendor\\Gumlet\\ImageResizeException' => $vendorDir . '/gumlet/php-image-resize/lib/ImageResizeException.php',
-    'Progresso\\Framework\\Vendor\\NokitaKaze\\RandomString\\RandomString' => $vendorDir . '/nokitakaze/randomstring/src/RandomString.php',
-    'Progresso\\Framework\\Vendor\\Wruczek\\PhpFileCache\\PhpFileCache' => $vendorDir . '/wruczek/php-file-cache/src/PhpFileCache.php',
+    'Progresso\\CustomRoute' => $baseDir . '/src/CustomRoute.php',
+    'Progresso\\Gumlet\\ImageResize' => $vendorDir . '/gumlet/php-image-resize/lib/ImageResize.php',
+    'Progresso\\Gumlet\\ImageResizeException' => $vendorDir . '/gumlet/php-image-resize/lib/ImageResizeException.php',
+    'Progresso\\Routing\\PostRouter' => $baseDir . '/src/Routing/PostRouter.php',
+    'Progresso\\Routing\\Router' => $baseDir . '/src/Routing/Router.php',
 );

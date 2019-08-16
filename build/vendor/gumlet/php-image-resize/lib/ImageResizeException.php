@@ -1,6 +1,6 @@
 <?php
 
-namespace Progresso\Framework\Vendor\Gumlet;
+namespace Progresso\Gumlet;
 
 /**
  * PHP Exception used in the ImageResize class

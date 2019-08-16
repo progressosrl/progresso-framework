@@ -17,7 +17,6 @@
  * Text Domain: 		progresso-framework
  */
 
-// don't load the plugin file directly
 if (!defined('ABSPATH')) exit;
 
 $config = include(__DIR__ . '/config/plugin.php');
@@ -33,7 +32,9 @@ if ($config['environment'] === 'production') {
     }
 
     // load the plugin update checker
-    require_once(PROGRESSO_FRAMEWORK_PATH . '/libraries/plugin-update-checker/v4p7/plugin-update-checker.php');
+    if (!class_exists('Puc_v4p7_Factory')) {
+        require_once(__DIR__ . '/libraries/plugin-update-checker/plugin-update-checker.php');
+    }
     $myUpdateChecker = Puc_v4p7_Factory::buildUpdateChecker(
         'https://github.com/progressosrl/progresso-framework/',
         __FILE__,
@@ -43,4 +44,4 @@ if ($config['environment'] === 'production') {
     require_once(__DIR__ . "/vendor/autoload.php");
 }
 
-Progresso\Framework\Plugin::init($config);
+Progresso\Routing\Router::hooks();

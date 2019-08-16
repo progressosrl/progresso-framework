@@ -16,6 +16,12 @@ Wordpress framework by Progresso srl
 Wordpress framework by Progresso srl
 
 
+== Usage ==
+
+1. Progresso\CustomRoute::add to add custom routes
+2. Progresso\Gumlet\ImageResize in order to resize images, you can find the documentation here https://github.com/gumlet/php-image-resize
+
+
 == Installation ==
 
 You can install it by one of the following methods:

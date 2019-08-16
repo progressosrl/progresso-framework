@@ -2,7 +2,11 @@
 
 namespace Progresso\Routing;
 
-class Router
+/**
+ * Class to be finished!
+ * It should be able to modify the query_vars for WP_Query and load different PHP template files
+ */
+class PostRouter
 {
     public static $routes = [];
     public static $match = \false;
@@ -11,6 +15,12 @@ class Router
         // actions
         add_action('init', self::class . '::matchRoutes');
         add_action('wp_loaded', self::class . '::route');
+        add_action('routing_matched_vars', self::class . '::removeFinalSlash');
+        // filters
+        add_filter('do_parse_request', self::class . '::doParseRequest', 10, 2);
+        add_filter('posts_request', self::class . '::postsRequest', 10, 3);
+        add_filter('query_vars', self::class . '::postsPreQuery', 10, 2);
+        add_filter('template_include', self::class . '::templateInclude', 99);
     }
     /**
      * Add a route to the array
@@ -64,6 +74,83 @@ class Router
         }
         \call_user_func(static::$match['handler'], static::$match['vars']);
         exit;
+    }
+    /**
+     * Do not let WP add the final slash
+     */
+    public static function removeFinalSlash()
+    {
+        if (static::$match) {
+            remove_action('template_redirect', 'redirect_canonical');
+        }
+    }
+    /**
+     * Disable parsing request, if needed
+     *
+     * @param bool $do_parse
+     * @param \WP $wp
+     * @return bool
+     */
+    public static function doParseRequest($do_parse, $wp)
+    {
+        if (static::$match && !static::$match['parse_request']) {
+            return \false;
+        }
+        return $do_parse;
+    }
+    /**
+     * Disable the WP_Query if it is a custom query
+     *
+     * @param $sql
+     * @param \WP_Query $q
+     * @return bool
+     */
+    public static function postsRequest(string $sql, $q)
+    {
+        if (static::$match && static::$match['disable_post_query'] && $q->is_main_query()) {
+            // disable row count
+            $q->query_vars['no_found_rows'] = \true;
+            // disable cache
+            $q->query_vars['cache_results'] = \false;
+            $q->query_vars['update_post_meta_cache'] = \false;
+            $q->query_vars['update_post_term_cache'] = \false;
+            return \false;
+        }
+        return $sql;
+    }
+    /**
+     * Adds params to the query
+     *
+     * @param $posts
+     * @param \WP_Query $query
+     */
+    public static function postsPreQuery($posts, $query)
+    {
+        if (static::$match && isset(static::$match['query_vars']) && $query->is_main_query()) {
+            if (\is_array(static::$match['query_vars'])) {
+                $query->query_vars = \array_merge($query->query_vars, static::$match['query_vars']);
+            } elseif (\is_callable(static::$match['query_vars'])) {
+                $query_vars = \call_user_func(static::$match['query_vars']);
+                $query->query_vars = \array_merge($query->query_vars, $query_vars);
+            }
+        }
+    }
+    /**
+     * Search for one of the templates
+     *
+     * @param $template
+     * @return string
+     */
+    public static function templateInclude($template)
+    {
+        if (!isset(static::$match['template'])) {
+            return $template;
+        }
+        $locate = locate_template(static::$match['template']);
+        if ($locate) {
+            return $locate;
+        }
+        return $template;
     }
     /////////////////////////////////////
     /// PRIVATE METHODS

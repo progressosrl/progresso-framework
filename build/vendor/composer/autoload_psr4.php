@@ -6,8 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Progresso\\Framework\\Vendor\\Wruczek\\PhpFileCache\\' => array($vendorDir . '/wruczek/php-file-cache/src'),
-    'Progresso\\Framework\\Vendor\\NokitaKaze\\RandomString\\' => array($vendorDir . '/nokitakaze/randomstring/src'),
-    'Progresso\\Framework\\Vendor\\Gumlet\\' => array($vendorDir . '/gumlet/php-image-resize/lib'),
-    'Progresso\\Framework\\' => array($baseDir . '/src'),
+    'Progresso\\Gumlet\\' => array($vendorDir . '/gumlet/php-image-resize/lib'),
+    'Progresso\\' => array($baseDir . '/src'),
 );

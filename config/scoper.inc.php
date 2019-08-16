@@ -8,7 +8,7 @@ $config = include(__DIR__.'/plugin.php');
 
 return [
     // The prefix configuration. If a non null value will be used, a random prefix will be generated.
-    'prefix' => $config['namespace'] . 'Vendor', //'Progresso\Framework\Vendor',
+    'prefix' => $config['namespace'], //'Progresso',
 
     // By default when running php-scoper add-prefix, it will prefix all relevant code found in the current working
     // directory. You can however define which files should be scoped by defining a collection of Finders in the
@@ -65,7 +65,7 @@ return [
     //
     // Fore more see https://github.com/humbug/php-scoper#whitelist
     'whitelist' => [
-        $config['namespace'] . '*',
+        $config['namespace'] . '\*',
         'PHPUnit\Framework\*',          // The whole namespace
     ],
 

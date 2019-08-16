@@ -34,7 +34,7 @@
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "Progresso\\Framework\\Vendor\\Gumlet\\": "lib\/"
+                "Progresso\\Gumlet\\": "lib\/"
             }
         },
         "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -55,98 +55,5 @@
             "resize",
             "scale"
         ]
-    },
-    {
-        "name": "nokitakaze\/randomstring",
-        "version": "v0.2.1",
-        "version_normalized": "0.2.1.0",
-        "source": {
-            "type": "git",
-            "url": "https:\/\/github.com\/nokitakaze\/php-randomstring.git",
-            "reference": "01cf5940d162590de9a7f908b316e735e5c77fe7"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https:\/\/api.github.com\/repos\/nokitakaze\/php-randomstring\/zipball\/01cf5940d162590de9a7f908b316e735e5c77fe7",
-            "reference": "01cf5940d162590de9a7f908b316e735e5c77fe7",
-            "shasum": ""
-        },
-        "require": {
-            "php": "^5.4.0 | >=7.0.9"
-        },
-        "conflict": {
-            "hhvm": "*"
-        },
-        "require-dev": {
-            "phpbench\/phpbench": "^0.13.0",
-            "phpunit\/phpunit": "^6.0 | ^5.7"
-        },
-        "time": "2017-10-07T10:22:53+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Progresso\\Framework\\Vendor\\NokitaKaze\\RandomString\\": "src\/"
-            }
-        },
-        "notification-url": "https:\/\/packagist.org\/downloads\/",
-        "license": [
-            "Apache-2.0"
-        ],
-        "authors": [
-            {
-                "name": "Nikita Vetrov",
-                "role": "Project lead",
-                "email": "admin@kanaria.ru",
-                "homepage": "http:\/\/kanaria.ru\/"
-            }
-        ],
-        "description": "Random string generating",
-        "keywords": [
-            "random"
-        ]
-    },
-    {
-        "name": "wruczek\/php-file-cache",
-        "version": "0.0.4",
-        "version_normalized": "0.0.4.0",
-        "source": {
-            "type": "git",
-            "url": "https:\/\/github.com\/Wruczek\/PHP-File-Cache.git",
-            "reference": "96fd502522beb7438f0874c7d39e096f5c96764f"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https:\/\/api.github.com\/repos\/Wruczek\/PHP-File-Cache\/zipball\/96fd502522beb7438f0874c7d39e096f5c96764f",
-            "reference": "96fd502522beb7438f0874c7d39e096f5c96764f",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.4.0"
-        },
-        "require-dev": {
-            "php": ">=5.6.0",
-            "phpunit\/phpunit": "5.6.*"
-        },
-        "time": "2018-01-20T17:06:00+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Progresso\\Framework\\Vendor\\Wruczek\\PhpFileCache\\": "src\/"
-            }
-        },
-        "notification-url": "https:\/\/packagist.org\/downloads\/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Wruczek",
-                "email": "wruczekk@gmail.com",
-                "homepage": "https:\/\/wruczek.tech"
-            }
-        ],
-        "description": "Light, simple and standalone PHP in-file caching class"
     }
 ]
